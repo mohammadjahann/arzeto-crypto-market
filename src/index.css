@@ -1,13 +1,35 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+@layer base {
+    @font-face {
+        font-family: 'MTNIrancell-Bold';
+        src: url('../public/fonts/MTNIrancell-Bold.ttf');
+    }
+}
+@layer base {
+    @font-face {
+        font-family: 'MTNIrancell-DemiBold';
+        src: url('../public/fonts/MTNIrancell-DemiBold.ttf');
+    }
+}
+@layer base {
+    @font-face {
+        font-family: 'MTNIrancell-ExtraLight';
+        src: url('../public/fonts/MTNIrancell-ExtraLight.ttf');
+    }
+}
+@layer base {
+    @font-face {
+        font-family: 'MTNIrancell-Light';
+        src: url('../public/fonts/MTNIrancell-Light.ttf');
+    }
+}
+@layer base {
+    @font-face {
+        font-family: 'MTNIrancell-Medium';
+        src: url('../public/fonts/MTNIrancell-Medium.ttf');
+    }
 }
