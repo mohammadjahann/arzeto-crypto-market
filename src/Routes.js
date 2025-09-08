@@ -6,7 +6,7 @@ let routes = [
         {path:'pair' , element:<p>Pair</p>},
     ]},
     {path:'/news' , element:<p>News</p>},
-    {path:'/Chart' , element:<p>News</p>},
+    {path:'/Chart' , element:<p>Chart</p>},
     
 
 ]
