@@ -17,7 +17,7 @@ function App() {
     <div className={`${isDark ? 'dark' : ''} min-h-full bg-primary-light dark:bg-primary-dark font-MTNIrancell-Medium`}>
       <Navbar darkModeHandler={darkModeHandler} />
       {/* Divider */}
-      <div className=' w-full h-[2px] bg-Dividers-light dark:bg-Dividers-dark'></div>
+      <div className="h-[70px] w-full border-b border-gray-300 dark:border-gray-700"></div>
 
       {router}
 

@@ -79,7 +79,7 @@ export default function Navbar({ darkModeHandler }) {
     };
 
     return (
-        <nav className="bg-primary-light dark:bg-primary-dark flex items-center justify-between mx-auto max-w-[80%] py-3">
+        <nav className=" border-b-Dividers-light fixed top-0 left-0 right-0 z-50 bg-primary-light dark:bg-primary-dark flex items-center justify-between mx-auto max-w-[80%] py-3">
             {/* Logo section */}
             <div className="text-2xl text-text-light dark:text-text-dark">
                 <p>
@@ -98,28 +98,27 @@ export default function Navbar({ darkModeHandler }) {
                 {/* Dark Mode */}
                 {darkMode('hidden sm:flex')}
 
-
                 {/* Hamburger menu */}
                 <GiHamburgerMenu className="cursor-pointer sm:hidden text-3xl" onClick={() => setShowSideMenu(true)} />
             </div>
 
             {/* Backdrop for blur effect */}
             <div
-                onClick={() => setShowSideMenu(false)} // Close menu when clicking outside
+                onClick={() => setShowSideMenu(false)}
                 className={`fixed inset-0 z-40 bg-black bg-opacity-30 transition-opacity duration-500
-                ${showSideMenu ? 'pointer-events-auto opacity-100 backdrop-blur-sm' : 'pointer-events-none opacity-0'}`}
+            ${showSideMenu ? 'pointer-events-auto opacity-100 backdrop-blur-sm' : 'pointer-events-none opacity-0'}`}
             ></div>
 
             {/* Side Menu */}
             <div
                 className={`fixed bottom-0 left-0 top-0 z-50 flex w-[70%] flex-col items-center gap-5 border-r border-gray-600
-                    bg-gray-700 bg-opacity-30 pt-5 text-text-light dark:text-text-dark
-                    transform transition-transform duration-500 backdrop-blur-md sm:w-[45%]
-                    ${showSideMenu ? 'translate-x-0' : '-translate-x-full'}`}>
+                bg-gray-700 bg-opacity-30 pt-5 text-text-light dark:text-text-dark
+                transform transition-transform duration-500 backdrop-blur-md sm:w-[45%]
+                ${showSideMenu ? 'translate-x-0' : '-translate-x-full'}`}>
                 <RxCross2
                     className="absolute right-4 top-4 cursor-pointer text-3xl text-text-light dark:text-text-dark"
-                    onClick={() => setShowSideMenu(false)}/>
-                {menu('flex flex-col gap-8 text-xl')} 
+                    onClick={() => setShowSideMenu(false)} />
+                {menu('flex flex-col gap-8 text-xl')}
                 {darkMode('flex')}
             </div>
         </nav>

@@ -1,7 +1,8 @@
 import React from "react"
+import Home from "./Pages/Home/Home"
 
 let routes = [
-    {path:'/' , element:<p>Home</p>},
+    {path:'/' , element:<Home/>},
     {path:'/market/*' , element:<p>Market</p>, children : [
         {path:'pair' , element:<p>Pair</p>},
     ]},
