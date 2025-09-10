@@ -69,7 +69,7 @@ export default function HomeChart() {
                         }
                     });
 
-                    console.log(finalData);
+                    
 
                     setChartData(finalData);
                 })

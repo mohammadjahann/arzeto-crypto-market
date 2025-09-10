@@ -7,7 +7,7 @@ function App() {
   const [isDark, setIsDark] = useState(false)
 
   const darkModeHandler = (data)=>{
-    console.log(data);
+    
     setIsDark(data)
     
   }
