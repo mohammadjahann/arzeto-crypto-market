@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import TrendingCart from './TrendingCart';
+import { data } from 'react-router-dom';
 
 export default function TopTrending() {
 
-    const [trending, setTrending] = useState()
-
+    const [trending, setTrending] = useState() 
     useEffect(() => {
 
         fetch('https://api.coingecko.com/api/v3/search/trending', {
