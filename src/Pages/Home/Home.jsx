@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSection from './Components/HeroSection'
 import HomeChart from './Components/HomeChart'
 import TopTrending from './Components/TopTrending'
+import TopCoins from './Components/TopCoins'
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <HeroSection/>
         <HomeChart/>
         <TopTrending/>
+        <TopCoins/>
     </div>
   )
 }
