@@ -3,7 +3,7 @@ import HeroSection from './Components/HeroSection'
 import HomeChart from './Components/HomeChart'
 import TopTrending from './Components/TopTrending'
 import TopCoins from './Components/TopCoins'
-import NewsSection from './NewsSection'
+import NewsSection from './Components/NewsSection'
 
 export default function Home() {
   return (

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRoutes } from "react-router-dom";
 import routes from "./Routes";
 import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 function App() {
   const [isDark, setIsDark] = useState(false)
@@ -20,6 +21,12 @@ function App() {
       <div className="h-[70px] w-full border-b border-gray-300 dark:border-gray-700"></div>
 
       {router}
+
+      {/* Divider */}
+      <div className="h-[70px] w-full border-b border-gray-300 dark:border-gray-700"></div>
+
+      <Footer/>
+
 
     </div>
   );
