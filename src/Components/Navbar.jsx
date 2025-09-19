@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { IoSunny, IoMoonSharp } from 'react-icons/io5';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxCross2 } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
+import darkModeContext from '../contexts/darkModecontext';
 
 export default function Navbar({ darkModeHandler }) {
-    const [isDark, setIsDark] = useState(false);
+    
     const [showSideMenu, setShowSideMenu] = useState(false);
+    const contextData = useContext(darkModeContext)
 
-    useEffect(() => {
-        darkModeHandler(isDark);
-    }, [isDark]);
+   
 
     // Disable body scroll when side menu is open
     useEffect(() => {
@@ -24,9 +24,7 @@ export default function Navbar({ darkModeHandler }) {
         };
     }, [showSideMenu]);
 
-    const darkModeBtn = () => {
-        setIsDark(prev => !prev);
-    };
+    
 
     const menu = data => {
         return (
@@ -58,17 +56,17 @@ export default function Navbar({ darkModeHandler }) {
     const darkMode = (exra) => {
         return (
             <div
-                onClick={darkModeBtn}
-                className={` ${exra} relative h-6 w-[50px] cursor-pointer items-center rounded-3xl bg-slate-400 p-1 ${isDark ? 'justify-end' : 'justify-start'
+                onClick={()=>contextData.setIsDark(prev=>!prev)}
+                className={` ${exra} relative h-6 w-[50px] cursor-pointer items-center rounded-3xl bg-slate-400 p-1 ${contextData.isDark ? 'justify-end' : 'justify-start'
                     }`}>
                 <div className={`h-5 w-5 rounded-full bg-blue-500 transition-all duration-300`}></div>
                 <IoSunny
                     className={`absolute right-[7px] text-yellow-400 transition-all duration-500 
-                ${isDark ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}
+                ${contextData.isDark ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}
                 />
                 <IoMoonSharp
                     className={`absolute left-[7px] text-slate-700 transition-all duration-500
-                ${isDark ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                ${contextData.isDark ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                 />
             </div>
         )
