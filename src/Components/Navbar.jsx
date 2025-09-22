@@ -6,11 +6,11 @@ import { NavLink } from 'react-router-dom';
 import darkModeContext from '../contexts/darkModecontext';
 
 export default function Navbar({ darkModeHandler }) {
-    
+
     const [showSideMenu, setShowSideMenu] = useState(false);
     const contextData = useContext(darkModeContext)
 
-   
+
 
     // Disable body scroll when side menu is open
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function Navbar({ darkModeHandler }) {
         };
     }, [showSideMenu]);
 
-    
+
 
     const menu = data => {
         return (
@@ -56,7 +56,7 @@ export default function Navbar({ darkModeHandler }) {
     const darkMode = (exra) => {
         return (
             <div
-                onClick={()=>contextData.setIsDark(prev=>!prev)}
+                onClick={() => contextData.setIsDark(prev => !prev)}
                 className={` ${exra} relative h-6 w-[50px] cursor-pointer items-center rounded-3xl bg-slate-400 p-1 ${contextData.isDark ? 'justify-end' : 'justify-start'
                     }`}>
                 <div className={`h-5 w-5 rounded-full bg-blue-500 transition-all duration-300`}></div>
@@ -77,47 +77,50 @@ export default function Navbar({ darkModeHandler }) {
     };
 
     return (
-        <nav className=" border-b-Dividers-light fixed top-0 left-0 right-0 z-50 bg-primary-light dark:bg-primary-dark flex items-center justify-between mx-auto max-w-[80%] py-3">
-            {/* Logo section */}
-            <div className="text-2xl text-text-light dark:text-text-dark">
-                <p>
-                    ARZE<span className="text-red-400">TO</span>
-                </p>
-            </div>
+        <nav className=" border-b-Dividers-light fixed top-0 left-0 right-0 z-50 bg-primary-light dark:bg-primary-dark ">
+            <div className=' max-w-[80%] flex items-center justify-between mx-auto w-full py-3'>
+                {/* Logo section */}
+                <div className="text-2xl text-text-light dark:text-text-dark">
+                    <p>
+                        ARZE<span className="text-red-400">TO</span>
+                    </p>
+                </div>
 
-            {/* Menu section  */}
-            {menu('hidden sm:flex gap-4')}
+                {/* Menu section  */}
+                {menu('hidden sm:flex gap-4')}
 
-            {/* Buttons Section */}
-            <div className="flex flex-row-reverse items-center gap-4 text-text-light dark:text-text-dark">
-                <button className="hidden rounded-2xl bg-[#38E07B] px-3 py-2 shadow-[0px_0px_30px_1px_#BAFFC2] lg:block">
-                    دریافت مشاوره
-                </button>
-                {/* Dark Mode */}
-                {darkMode('hidden sm:flex')}
+                {/* Buttons Section */}
+                <div className="flex flex-row-reverse items-center gap-4 text-text-light dark:text-text-dark">
+                    <button className="hidden rounded-2xl bg-[#38E07B] px-3 py-2 shadow-[0px_0px_30px_1px_#BAFFC2] lg:block">
+                        دریافت مشاوره
+                    </button>
+                    {/* Dark Mode */}
+                    {darkMode('hidden sm:flex')}
 
-                {/* Hamburger menu */}
-                <GiHamburgerMenu className="cursor-pointer sm:hidden text-3xl" onClick={() => setShowSideMenu(true)} />
-            </div>
+                    {/* Hamburger menu */}
+                    <GiHamburgerMenu className="cursor-pointer sm:hidden text-3xl" onClick={() => setShowSideMenu(true)} />
+                </div>
 
-            {/* Backdrop for blur effect */}
-            <div
-                onClick={() => setShowSideMenu(false)}
-                className={`fixed inset-0 z-40 bg-black bg-opacity-30 transition-opacity duration-500
+                {/* Backdrop for blur effect */}
+                <div
+                    onClick={() => setShowSideMenu(false)}
+                    className={`fixed inset-0 z-40 bg-black bg-opacity-30 transition-opacity duration-500
             ${showSideMenu ? 'pointer-events-auto opacity-100 backdrop-blur-sm' : 'pointer-events-none opacity-0'}`}
-            ></div>
+                ></div>
 
-            {/* Side Menu */}
-            <div
-                className={`fixed bottom-0 left-0 top-0 z-50 flex w-[70%] flex-col items-center gap-5 border-r border-gray-600
+                {/* Side Menu */}
+                <div
+                    className={`fixed bottom-0 left-0 top-0 z-50 flex w-[70%] flex-col items-center gap-5 border-r border-gray-600
                 bg-gray-700 bg-opacity-30 pt-5 text-text-light dark:text-text-dark
                 transform transition-transform duration-500 backdrop-blur-md sm:w-[45%]
                 ${showSideMenu ? 'translate-x-0' : '-translate-x-full'}`}>
-                <RxCross2
-                    className="absolute right-4 top-4 cursor-pointer text-3xl text-text-light dark:text-text-dark"
-                    onClick={() => setShowSideMenu(false)} />
-                {menu('flex flex-col gap-8 text-xl')}
-                {darkMode('flex')}
+                    <RxCross2
+                        className="absolute right-4 top-4 cursor-pointer text-3xl text-text-light dark:text-text-dark"
+                        onClick={() => setShowSideMenu(false)} />
+                    {menu('flex flex-col gap-8 text-xl')}
+                    {darkMode('flex')}
+                </div>
+
             </div>
         </nav>
     );
