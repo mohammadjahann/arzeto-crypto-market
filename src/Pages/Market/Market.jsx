@@ -11,7 +11,7 @@ export default function Market() {
     const [curentPage, setCurentPage] = useState(1)
     const [curentCoins, setCurentCoins] = useState([])
     const [paginationNumbers, setPaginationNumbers] = useState([])
-    const[loading,setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
     const inputRef = useRef()
     const pageShowNumber = 20
 
@@ -48,7 +48,7 @@ export default function Market() {
                 console.error(" خطا در گرفتن دیتا:", error);
             } else {
                 console.log(data);
-                
+
 
                 setCoins(data)
                 setLoading(false)
@@ -81,13 +81,15 @@ export default function Market() {
             .then(res => res.json())
             .then(async datas => {
                 console.log("نتیجه سرچ:", datas.coins);
+                setCoins(datas.coins);
+                setLoading(false)
 
-               
+
                 const ids = datas.coins.map(c => c.id).join(",");
 
                 if (!ids) return;
 
-                
+
                 const res2 = await fetch(
                     `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids}&sparkline=true`,
                     {
@@ -98,10 +100,10 @@ export default function Market() {
                     }
                 );
                 const fullData = await res2.json();
-                
+
                 setCoins(fullData);
                 setLoading(false)
-                
+
             })
             .catch(err => console.error(err));
     };

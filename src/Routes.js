@@ -3,6 +3,7 @@ import Home from "./Pages/Home/Home"
 import Market from "./Pages/Market/Market"
 import Pairs from "./Pages/Market/Pairs"
 import Chart from "./Pages/Chart/Chart"
+import News from "./Pages/News/News"
 
 
 let routes = [
@@ -10,7 +11,7 @@ let routes = [
     {path:'/market/*' , element:<Market/>, children : [
         {path:'pair/:id' , element:<Pairs/>},
     ]},
-    {path:'/news' , element:<p className="font-sans text-text-light dark:text-text-dark h-[100vh]">News</p>},
+    {path:'/news' , element: <News/>},
     {path:'/Chart' , element:<Chart/>},
     
 

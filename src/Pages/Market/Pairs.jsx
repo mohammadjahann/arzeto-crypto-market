@@ -47,7 +47,7 @@ export default function Pairs() {
 
         // get data for chart
 
-        fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=2`, {
+        fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=10`, {
             headers: {
                 'accept': 'application/json',
                 'x-cg-demo-api-key': 'CG-Bqgd2kZzSgqPgsJKEvZvopvi'
@@ -131,7 +131,7 @@ export default function Pairs() {
                         <img src={coin.image} alt={coin.name} className="w-20 h-20 mt-4" />
                         <p className="mt-2">Price: ${coin.current_price}</p>
                         <p className="mt-2">Market Cap: {coin.market_cap}</p>
-                        <p className="mt-2">24h Change: {coin.price_change_percentage_24h.toFixed(2)}%</p>
+                        <p className="mt-2">24h Change: {coin.price_change_percentage_24h.toFixed(2) || 'Failed'}%</p>
                     </div>
                 </div>
 
